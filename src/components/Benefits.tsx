@@ -114,7 +114,7 @@ export default function Benefits() {
                 <span className="font-semibold text-gray-900">ROI Guarantee</span>
               </div>
               <p className="text-gray-700">
-                See measurable returns within 6 months or we'll work with you until you do. 
+                See measurable returns within 6 months or we&apos;ll work with you until you do. 
                 Our platform typically pays for itself through operational savings alone.
               </p>
             </motion.div>
@@ -177,7 +177,7 @@ export default function Benefits() {
               className="text-lg text-gray-700 mb-6"
               variants={fadeInUp}
             >
-              We're building the next generation of smart community management. Join us in revolutionizing 
+              We&apos;re building the next generation of smart community management. Join us in revolutionizing 
               how residential estates operate with cutting-edge IoT technology, intelligent automation, 
               and user-centric design.
             </motion.p>
