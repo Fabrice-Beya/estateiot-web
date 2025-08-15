@@ -1,15 +1,24 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Enable static export
   output: 'export',
+  
+  // Add trailing slash for better compatibility
   trailingSlash: true,
+  
+  // Disable image optimization for static export
   images: {
     unoptimized: true
   },
-  // Configure base path for GitHub Pages if repository name is not your domain
-  // Remove this if you're using a custom domain at the root
-  basePath: process.env.NODE_ENV === 'production' ? '' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
+  
+  // Disable server-side features for static export
+  reactStrictMode: true,
+  
+  // Ensure no server-side rendering
+  experimental: {
+    esmExternals: false
+  }
 };
 
 export default nextConfig;
