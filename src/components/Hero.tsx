@@ -148,7 +148,7 @@ export default function Hero() {
               >
                 <div className="relative">
                   <Image 
-                    src="/screenshot-ios.png" 
+                    src="/screenshot_0.png" 
                     alt="EstateIoT Mobile App" 
                     width={280}
                     height={560}

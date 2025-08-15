@@ -43,8 +43,16 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 mt-12 text-center text-gray-400">
-          <p>&copy; 2024 EstateIoT. All rights reserved. Built with precision for modern estate management.</p>
+        <div className="border-t border-gray-800 pt-8 mt-12">
+          <div className="flex flex-col md:flex-row justify-between items-center text-gray-400">
+            <p>&copy; 2024 EstateIoT. All rights reserved. Built with precision for modern estate management.</p>
+            <div className="flex space-x-6 mt-4 md:mt-0 text-sm">
+              <a href="/support" className="hover:text-white transition-colors">Support</a>
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

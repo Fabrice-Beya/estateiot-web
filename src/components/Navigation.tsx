@@ -32,7 +32,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-gray-700 hover:text-[#3498db] transition-colors">Features</a>
             <a href="#benefits" className="text-gray-700 hover:text-[#3498db] transition-colors">Benefits</a>
-            <a href="#" className="text-gray-700 hover:text-[#3498db] transition-colors">Beta Program</a>
+            <a href="/support" className="text-gray-700 hover:text-[#3498db] transition-colors">Support</a>
             <a href="#contact" className="text-gray-700 hover:text-[#3498db] transition-colors">Contact</a>
             <button className="bg-[#3498db] text-white px-6 py-2 rounded-lg hover:bg-[#2980b9] hover:shadow-lg transition-all">
               Get Started
@@ -54,7 +54,7 @@ export default function Navigation() {
             <div className="px-2 pt-2 pb-3 space-y-1">
               <a href="#features" className="block px-3 py-2 text-gray-700 hover:text-[#3498db]">Features</a>
               <a href="#benefits" className="block px-3 py-2 text-gray-700 hover:text-[#3498db]">Benefits</a>
-              <a href="#" className="block px-3 py-2 text-gray-700 hover:text-[#3498db]">Beta Program</a>
+              <a href="/support" className="block px-3 py-2 text-gray-700 hover:text-[#3498db]">Support</a>
               <a href="#contact" className="block px-3 py-2 text-gray-700 hover:text-[#3498db]">Contact</a>
               <button className="w-full mt-4 bg-[#3498db] text-white px-6 py-2 rounded-lg">
                 Get Started
