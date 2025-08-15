@@ -1,4 +1,4 @@
-import { Building, Globe, Shield, Zap } from 'lucide-react'
+import { Globe, Shield, Zap } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -26,19 +26,19 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Product</h3>
             <ul className="space-y-2 text-gray-300">
               <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Beta Program</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Security</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Integrations</a></li>
+              <li><button className="hover:text-white transition-colors text-left">Beta Program</button></li>
+              <li><button className="hover:text-white transition-colors text-left">Security</button></li>
+              <li><button className="hover:text-white transition-colors text-left">Integrations</button></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Support</h3>
             <ul className="space-y-2 text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+              <li><button className="hover:text-white transition-colors text-left">Documentation</button></li>
+              <li><button className="hover:text-white transition-colors text-left">Help Center</button></li>
               <li><a href="#contact" className="hover:text-white transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Status</a></li>
+              <li><button className="hover:text-white transition-colors text-left">Status</button></li>
             </ul>
           </div>
         </div>
@@ -48,9 +48,9 @@ export default function Footer() {
             <p>&copy; 2024 EstateIoT. All rights reserved. Built with precision for modern estate management.</p>
             <div className="flex space-x-6 mt-4 md:mt-0 text-sm">
               <a href="/support" className="hover:text-white transition-colors">Support</a>
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+              <button className="hover:text-white transition-colors">Privacy Policy</button>
+              <button className="hover:text-white transition-colors">Terms of Service</button>
+              <button className="hover:text-white transition-colors">Cookie Policy</button>
             </div>
           </div>
         </div>

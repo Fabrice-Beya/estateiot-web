@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Star, Smartphone, Tablet, Download, Apple, Play } from 'lucide-react'
+import { ArrowRight, Star, Smartphone, Apple, Play } from 'lucide-react'
 // Using regular img tags for React app
 
 export default function Hero() {

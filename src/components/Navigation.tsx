@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react'
-import { Building, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

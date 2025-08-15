@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Smartphone, Monitor, Tablet, Lock, Bell, Users, BarChart3, Wifi, Zap } from 'lucide-react'
+import { Smartphone, Monitor, Tablet, Lock, Wifi, Zap } from 'lucide-react'
 // Using regular img tags for React app
 
 export default function ProductShowcase() {
