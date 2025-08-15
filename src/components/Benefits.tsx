@@ -1,4 +1,3 @@
-'use client'
 
 import { motion } from 'framer-motion'
 import { CheckCircle, TrendingUp, Shield, Clock, Users, DollarSign } from 'lucide-react'

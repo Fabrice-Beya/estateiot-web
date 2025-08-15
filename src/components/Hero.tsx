@@ -1,8 +1,6 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { ArrowRight, Star, Smartphone, Tablet, Download, Apple, Play } from 'lucide-react'
-import Image from 'next/image'
+// Using regular img tags for React app
 
 export default function Hero() {
   const fadeInUp = {
@@ -147,7 +145,7 @@ export default function Hero() {
                 animate={phoneFloat}
               >
                 <div className="relative">
-                  <Image 
+                  <img 
                     src="/screenshot_0.png" 
                     alt="EstateIoT Mobile App" 
                     width={280}
@@ -166,7 +164,7 @@ export default function Hero() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
               >
-                <Image 
+                <img 
                   src="/screenshot_1.png" 
                   alt="EstateIoT Features" 
                   width={200}
@@ -181,7 +179,7 @@ export default function Hero() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
               >
-                <Image 
+                <img 
                   src="/screenshot_2.png" 
                   alt="EstateIoT Dashboard" 
                   width={200}
@@ -197,7 +195,7 @@ export default function Hero() {
                 animate={{ opacity: 0.3, scale: 1 }}
                 transition={{ delay: 1, duration: 1 }}
               >
-                <Image 
+                <img 
                   src="/screenshot_3.png" 
                   alt="EstateIoT Admin Panel" 
                   width={320}

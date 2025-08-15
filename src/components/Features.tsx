@@ -1,4 +1,3 @@
-'use client'
 
 import { motion } from 'framer-motion'
 import { Lock, Bell, Users, Eye, Cpu, BarChart3, Wifi, Shield, Smartphone, Database, Settings, Zap } from 'lucide-react'

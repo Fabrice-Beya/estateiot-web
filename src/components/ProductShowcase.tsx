@@ -1,8 +1,6 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { Smartphone, Monitor, Tablet, Lock, Bell, Users, BarChart3, Wifi, Zap } from 'lucide-react'
-import Image from 'next/image'
+// Using regular img tags for React app
 
 export default function ProductShowcase() {
   const fadeInUp = {
@@ -132,7 +130,7 @@ export default function ProductShowcase() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="relative bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                  <Image
+                  <img
                     src={item.image}
                     alt={item.title}
                     width={500}
