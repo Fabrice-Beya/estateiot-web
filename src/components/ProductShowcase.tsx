@@ -1,203 +1,106 @@
 import { motion } from 'framer-motion'
-import { Smartphone, Monitor, Tablet, Lock, Wifi, Zap } from 'lucide-react'
-// Using regular img tags for React app
+import { DoorOpen, Megaphone, Activity, CheckCircle2 } from 'lucide-react'
+import StoreBadges from './StoreBadges'
+
+const showcase = [
+  {
+    icon: DoorOpen,
+    eyebrow: 'Gate management',
+    title: 'Open the gate from your pocket',
+    description:
+      'Residents and guards control entrance and exit gates in real time, view live status, and report issues instantly.',
+    image: '/screenshot_1.png',
+    points: ['Remote open & close', 'Live gate status', 'One-tap issue reporting', 'Full access history'],
+  },
+  {
+    icon: Megaphone,
+    eyebrow: 'Announcements',
+    title: 'Keep the community informed',
+    description:
+      'Estate news, meeting minutes, and urgent notices arrive instantly with clear priority labels and read counts.',
+    image: '/screenshot_2.png',
+    points: ['Priority labels', 'Push notifications', 'Read tracking', 'Categorised feed'],
+  },
+  {
+    icon: Activity,
+    eyebrow: 'System status',
+    title: 'See what’s operational at a glance',
+    description:
+      'A live overview of gates, cameras, security, and utilities — so everyone knows the state of the estate.',
+    image: '/screenshot_3.png',
+    points: ['Operational overview', 'Per-device detail', 'Maintenance alerts', 'Last-updated stamps'],
+  },
+]
 
 export default function ProductShowcase() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  }
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
-
-  const showcaseItems = [
-    {
-      icon: Smartphone,
-      title: "Mobile-First Experience",
-      description: "Native iOS and Android apps designed for residents, guards, and administrators",
-      image: "/screenshot_0.png",
-      features: ["Instant notifications", "Gate control", "Visitor management", "Community updates"]
-    },
-    {
-      icon: Monitor,
-      title: "Admin Dashboard",
-      description: "Comprehensive web portal for estate managers and property administrators",
-      image: "/screenshot_3.png", 
-      features: ["Real-time monitoring", "User management", "Analytics & reports", "System configuration"]
-    },
-    {
-      icon: Lock,
-      title: "Smart Access Control",
-      description: "Advanced gate management with IoT integration and security protocols",
-      image: "/screenshot_1.png",
-      features: ["RFID integration", "Mobile gate control", "Visitor pre-approval", "Access logs"]
-    }
-  ]
-
-  const platforms = [
-    { name: "iOS App", icon: Smartphone, status: "Coming Soon", color: "#3498db" },
-    { name: "Android App", icon: Tablet, status: "Coming Soon", color: "#3498db" },
-    { name: "Web Dashboard", icon: Monitor, status: "Beta", color: "#27ae60" },
-    { name: "IoT Hub", icon: Wifi, status: "Development", color: "#f39c12" }
-  ]
-
   return (
-    <section className="py-20 bg-gradient-to-br from-white via-blue-50/30 to-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div 
-          className="text-center mb-16"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-        >
-          <motion.div
-            className="inline-flex items-center px-4 py-2 bg-[#3498db]/10 rounded-full text-[#3498db] font-medium text-sm mb-6"
-            variants={fadeInUp}
-          >
-            <Zap className="w-4 h-4 mr-2" />
-            Product Showcase
-          </motion.div>
-          <motion.h2 
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
-            variants={fadeInUp}
-          >
-            Experience the Complete
-            <span className="block text-[#3498db]">Estate Management Ecosystem</span>
-          </motion.h2>
-          <motion.p 
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
-            variants={fadeInUp}
-          >
-            From mobile apps to web dashboards, IoT integration to smart automation - 
-            discover how EstateIoT transforms every aspect of community management.
-          </motion.p>
-        </motion.div>
-
-        {/* Product Showcase Grid */}
-        <div className="space-y-20">
-          {showcaseItems.map((item, index) => (
-            <motion.div
-              key={index}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-              }`}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-            >
-              <motion.div 
-                className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
-                variants={fadeInUp}
-              >
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-[#3498db]/10 rounded-xl flex items-center justify-center mr-4">
-                    <item.icon className="w-6 h-6 text-[#3498db]" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{item.title}</h3>
-                </div>
-                
-                <p className="text-lg text-gray-600 mb-8">{item.description}</p>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {item.features.map((feature, featureIndex) => (
-                    <motion.div
-                      key={featureIndex}
-                      className="flex items-center space-x-3 p-3 bg-white rounded-lg shadow-sm border border-gray-100"
-                      variants={fadeInUp}
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <div className="w-2 h-2 bg-[#3498db] rounded-full"></div>
-                      <span className="text-gray-700 font-medium">{feature}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div 
-                className={`relative ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}
-                variants={fadeInUp}
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="relative bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    width={500}
-                    height={400}
-                    className="w-full h-auto rounded-xl"
-                  />
-                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-[#3498db] rounded-full flex items-center justify-center">
-                    <item.icon className="w-4 h-4 text-white" />
-                  </div>
-                </div>
-                
-                {/* Floating decoration */}
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[#3498db]/20 to-transparent rounded-full -z-10"></div>
-              </motion.div>
-            </motion.div>
-          ))}
+    <section id="app" className="bg-white py-24 lg:py-32">
+      <div className="container-px">
+        <div className="grid items-end gap-8 lg:grid-cols-[1.4fr_1fr]">
+          <div className="max-w-2xl">
+            <span className="eyebrow">
+              <DoorOpen className="h-3.5 w-3.5" />
+              The resident app
+            </span>
+            <h2 className="heading mt-5 text-3xl sm:text-4xl lg:text-[2.7rem]">
+              Estate life, simplified for every resident
+            </h2>
+            <p className="mt-5 text-lg text-ink-500">
+              Available now on the App Store and Google Play. Designed for residents, security
+              guards, and administrators alike.
+            </p>
+          </div>
+          <div className="lg:pb-2">
+            <StoreBadges variant="light" />
+          </div>
         </div>
 
-        {/* Platform Status */}
-        <motion.div 
-          className="mt-20 text-center"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-        >
-          <motion.h3 
-            className="text-2xl font-bold text-gray-900 mb-8"
-            variants={fadeInUp}
-          >
-            Development Roadmap
-          </motion.h3>
-          
-          <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto"
-            variants={staggerContainer}
-          >
-            {platforms.map((platform, index) => (
+        <div className="mt-20 space-y-24">
+          {showcase.map((item, index) => (
+            <div
+              key={item.title}
+              className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2"
+            >
               <motion.div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center"
-                variants={fadeInUp}
-                whileHover={{ scale: 1.05, y: -5 }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className={index % 2 === 1 ? 'lg:order-2' : ''}
               >
-                <div className="w-16 h-16 mx-auto mb-4 bg-gray-50 rounded-xl flex items-center justify-center">
-                  <platform.icon className="w-8 h-8 text-gray-600" />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">{platform.name}</h4>
-                <span 
-                  className="inline-block px-3 py-1 rounded-full text-sm font-medium text-white"
-                  style={{ backgroundColor: platform.color }}
-                >
-                  {platform.status}
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-600">
+                  <item.icon className="h-4 w-4" />
+                  {item.eyebrow}
                 </span>
+                <h3 className="heading mt-3 text-2xl sm:text-3xl">{item.title}</h3>
+                <p className="mt-4 max-w-lg text-lg text-ink-500">{item.description}</p>
+                <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  {item.points.map((p) => (
+                    <li key={p} className="flex items-center gap-2.5 text-[15px] font-medium text-ink-700">
+                      <CheckCircle2 className="h-5 w-5 shrink-0 text-brand-500" />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
-            ))}
-          </motion.div>
 
-          <motion.div 
-            className="mt-8 p-4 bg-[#3498db]/5 rounded-lg border border-[#3498db]/20 max-w-2xl mx-auto"
-            variants={fadeInUp}
-          >
-            <p className="text-gray-700">
-              <strong>Join our beta program</strong> to get early access to new features and help shape the future of estate management technology.
-            </p>
-          </motion.div>
-        </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className={`relative flex justify-center ${index % 2 === 1 ? 'lg:order-1' : ''}`}
+              >
+                <div className="absolute inset-x-10 bottom-8 top-12 rounded-[2.5rem] bg-gradient-to-b from-brand-50 to-ink-50/40 ring-1 ring-ink-100" />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="relative w-[280px] drop-shadow-[0_30px_50px_rgba(12,22,38,0.2)] sm:w-[300px]"
+                />
+              </motion.div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

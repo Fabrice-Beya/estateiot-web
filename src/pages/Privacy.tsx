@@ -1,41 +1,42 @@
 import React from 'react';
 import { ArrowLeft, Shield, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { site, year } from '../lib/site';
 
 const Privacy: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-ink-50/60">
       {/* Header with Navigation */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <header className="sticky top-0 z-40 border-b border-ink-100 bg-white/85 backdrop-blur-xl">
+        <div className="container-px py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center space-x-2">
-              <ArrowLeft className="w-5 h-5 text-[#3498db]" />
-              <span className="text-gray-700 hover:text-[#3498db]">Back to EstateIoT</span>
+            <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-ink-600 transition-colors hover:text-brand-600">
+              <ArrowLeft className="h-4 w-4" />
+              Back to EstateIoT
             </Link>
-            <div className="flex items-center space-x-2">
-              <img src="/icon.png" alt="EstateIoT" className="w-8 h-8 rounded-lg" />
-              <span className="text-xl font-bold text-[#3498db]">EstateIoT</span>
+            <div className="flex items-center gap-2.5">
+              <img src="/icon.png" alt="EstateIoT" className="h-8 w-8 rounded-[9px] ring-1 ring-ink-100" />
+              <span className="font-display text-lg font-bold text-ink-900">
+                Estate<span className="text-brand-600">IoT</span>
+              </span>
             </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="container-px max-w-4xl py-14">
         {/* Hero Section */}
-        <div className="text-center mb-12">
-          <div className="w-16 h-16 bg-[#3498db]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Shield className="w-8 h-8 text-[#3498db]" />
+        <div className="mb-12 text-center">
+          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 ring-1 ring-brand-100">
+            <Shield className="h-8 w-8" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
-          <p className="text-lg text-gray-600">
-            Last updated: August 08, 2025
-          </p>
+          <h1 className="heading text-4xl">Privacy Policy</h1>
+          <p className="mt-3 text-lg text-ink-400">Last updated: August 08, 2025</p>
         </div>
 
         {/* Privacy Policy Content */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
+        <div className="card p-8 lg:p-12">
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-700 leading-relaxed mb-6">
               This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
@@ -141,11 +142,11 @@ const Privacy: React.FC = () => {
               If you have any questions about this Privacy Policy, You can contact us:
             </p>
             
-            <div className="bg-[#3498db]/5 border border-[#3498db]/20 rounded-lg p-6">
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-[#3498db]" />
-                <span className="text-gray-700">
-                  By email: <a href="mailto:beyafabrice@gmail.com" className="text-[#3498db] font-semibold hover:underline">beyafabrice@gmail.com</a>
+            <div className="rounded-xl border border-brand-200 bg-brand-50 p-6">
+              <div className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-brand-600" />
+                <span className="text-ink-700">
+                  By email: <a href={`mailto:${site.privacyEmail}`} className="font-semibold text-brand-600 hover:underline">{site.privacyEmail}</a>
                 </span>
               </div>
             </div>
@@ -153,16 +154,14 @@ const Privacy: React.FC = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-12 pt-8 border-t border-gray-200">
-          <p className="text-gray-600">
+        <div className="mt-12 border-t border-ink-100 pt-8 text-center">
+          <p className="text-ink-500">
             Questions about our privacy practices? Contact us at{' '}
-            <a href="mailto:beyafabrice@gmail.com" className="text-[#3498db] font-semibold hover:underline">
-              beyafabrice@gmail.com
+            <a href={`mailto:${site.privacyEmail}`} className="font-semibold text-brand-600 hover:underline">
+              {site.privacyEmail}
             </a>
           </p>
-          <p className="text-sm text-gray-500 mt-2">
-            © 2024 EstateIoT. All rights reserved.
-          </p>
+          <p className="mt-2 text-sm text-ink-400">© {year} {site.name}. All rights reserved.</p>
         </div>
       </main>
     </div>

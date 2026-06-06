@@ -1,216 +1,152 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Star, Smartphone, Apple, Play } from 'lucide-react'
-// Using regular img tags for React app
+import { ArrowRight, ShieldCheck, DoorOpen, Bell, Activity } from 'lucide-react'
+import StoreBadges from './StoreBadges'
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+}
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } },
+}
 
 export default function Hero() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  }
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
-
-  const phoneFloat = {
-    y: [-10, 10, -10],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut" as const
-    }
-  }
-
   return (
-    <section className="pt-24 pb-20 bg-gradient-to-br from-gray-50 via-blue-50 to-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-20 h-20 border-4 border-[#3498db] rounded-full"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-[#3498db] rounded-full"></div>
-        <div className="absolute bottom-40 left-20 w-12 h-12 border-2 border-[#3498db] rounded-lg rotate-45"></div>
-        <div className="absolute bottom-20 right-40 w-8 h-8 bg-[#3498db] rounded-full"></div>
-      </div>
+    <section className="relative overflow-hidden bg-white pt-28 lg:pt-36">
+      {/* Background grid + glow */}
+      <div className="pointer-events-none absolute inset-0 bg-grid-light [background-size:44px_44px] mask-fade-b opacity-70" />
+      <div className="pointer-events-none absolute -top-40 right-[-10%] h-[520px] w-[520px] rounded-full bg-brand-400/20 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-24 left-[-10%] h-[420px] w-[420px] rounded-full bg-brand-200/40 blur-[120px]" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
-            className="text-center lg:text-left order-2 lg:order-1"
-            initial="initial"
-            animate="animate"
-            variants={staggerContainer}
-          >
-            <motion.div
-              className="inline-flex items-center px-4 py-2 bg-[#3498db]/10 rounded-full text-[#3498db] font-medium text-sm mb-6"
-              variants={fadeInUp}
-            >
-              <Smartphone className="w-4 h-4 mr-2" />
-              Smart Estate Management Platform
-            </motion.div>
-
-            <motion.h1 
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
-              variants={fadeInUp}
-            >
-              The Future of
-              <span className="block text-[#3498db]">
-                Estate Management
+      <div className="container-px relative">
+        <div className="grid grid-cols-1 items-center gap-16 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:pb-28">
+          <motion.div variants={container} initial="hidden" animate="show">
+            <motion.div variants={item} className="flex flex-wrap items-center gap-3">
+              <span className="eyebrow">
+                <ShieldCheck className="h-3.5 w-3.5" />
+                Smart Estate Operating System
               </span>
-            </motion.h1>
-            
-            <motion.p 
-              className="mt-6 text-xl text-gray-600 max-w-2xl"
-              variants={fadeInUp}
-            >
-              Transform your residential community with our comprehensive IoT platform. 
-              Advanced gate control, resident communication, and smart monitoring - all in one solution.
-            </motion.p>
-            
-            <motion.div 
-              className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-              variants={fadeInUp}
-            >
-              <button className="bg-[#3498db] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#2980b9] hover:shadow-xl transition-all transform hover:scale-105">
-                Start Free Trial
-                <ArrowRight className="inline-block ml-2 w-5 h-5" />
-              </button>
-              <button className="border-2 border-[#3498db] text-[#3498db] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#3498db] hover:text-white transition-all">
-                Watch Demo
-              </button>
+              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-600/15">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
+                Live on iOS &amp; Android
+              </span>
             </motion.div>
 
-            {/* Mobile App Download Section */}
-            <motion.div 
-              className="mt-12 p-6 bg-white rounded-xl border border-gray-200 shadow-sm"
-              variants={fadeInUp}
+            <motion.h1
+              variants={item}
+              className="heading mt-6 text-4xl leading-[1.05] sm:text-5xl lg:text-[3.6rem]"
             >
-              <div className="flex items-center justify-center lg:justify-start mb-4">
-                <Smartphone className="w-5 h-5 text-[#3498db] mr-2" />
-                <h3 className="text-lg font-semibold text-gray-900">Mobile App</h3>
-              </div>
-              <p className="text-gray-600 mb-4 text-center lg:text-left">
-                Control your estate from anywhere with our mobile apps
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                <div className="flex items-center px-4 py-3 bg-gray-100 rounded-lg cursor-not-allowed">
-                  <Apple className="w-6 h-6 mr-3" />
-                  <div>
-                    <div className="text-xs text-gray-500">Coming Soon</div>
-                    <div className="text-sm font-medium text-gray-700">App Store</div>
-                  </div>
-                </div>
-                <div className="flex items-center px-4 py-3 bg-gray-100 rounded-lg cursor-not-allowed">
-                  <Play className="w-6 h-6 mr-3" />
-                  <div>
-                    <div className="text-xs text-gray-500">Coming Soon</div>
-                    <div className="text-sm font-medium text-gray-700">Google Play</div>
-                  </div>
-                </div>
-              </div>
+              The operating system for
+              <span className="block gradient-text">modern gated estates</span>
+            </motion.h1>
+
+            <motion.p
+              variants={item}
+              className="mt-6 max-w-xl text-lg leading-relaxed text-ink-500"
+            >
+              EstateIoT connects residents, security teams, and facility administrators on one
+              secure platform — remote gate control, visitor access, announcements, and
+              real-time system monitoring, managed from a powerful admin portal.
+            </motion.p>
+
+            <motion.div variants={item} className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a href="#admin" className="btn-primary">
+                Explore the admin portal
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="#app" className="btn-ghost">
+                See the resident app
+              </a>
             </motion.div>
-            
-            <motion.div 
-              className="mt-8 flex items-center justify-center lg:justify-start space-x-6"
-              variants={fadeInUp}
-            >
-              <div className="flex items-center space-x-1">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <span className="ml-2 text-gray-600">5.0 rating</span>
-              </div>
-              <div className="text-gray-600">
-                <span className="font-semibold text-[#3498db]">500+</span> estates managed
-              </div>
+
+            <motion.div variants={item} className="mt-8">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink-400">
+                Download the resident app
+              </p>
+              <StoreBadges />
             </motion.div>
           </motion.div>
 
-          {/* App Screenshots Section */}
-          <motion.div 
-            className="relative order-1 lg:order-2"
-            initial={{ opacity: 0, scale: 0.8 }}
+          {/* Visual */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative flex justify-center items-center h-[600px]">
-              {/* Main Phone - Center */}
-              <motion.div 
-                className="relative z-30"
-                animate={phoneFloat}
+            <div className="relative mx-auto flex max-w-md justify-center">
+              {/* Soft platform behind phones */}
+              <div className="absolute inset-x-6 bottom-6 top-10 rounded-[2.5rem] bg-gradient-to-b from-brand-50 to-white ring-1 ring-ink-100" />
+
+              <motion.img
+                src="/screenshot_0.png"
+                alt="EstateIoT resident dashboard"
+                className="relative z-20 w-[270px] drop-shadow-[0_40px_60px_rgba(12,22,38,0.25)] sm:w-[300px]"
+                animate={{ y: [-8, 8, -8] }}
+                transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+              />
+
+              {/* Floating chips */}
+              <motion.div
+                className="absolute -left-2 top-16 z-30 hidden rounded-2xl border border-ink-100 bg-white/90 px-4 py-3 shadow-card backdrop-blur sm:block"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
               >
-                <div className="relative">
-                  <img 
-                    src="/screenshot_0.png" 
-                    alt="EstateIoT Mobile App" 
-                    width={280}
-                    height={560}
-                    className="shadow-2xl rounded-3xl"
-                  />
-                  {/* Phone highlight */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-[#3498db]/20 to-transparent rounded-[3rem] -z-10"></div>
+                <div className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+                    <DoorOpen className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-ink-900">Main Gate</p>
+                    <p className="text-xs font-medium text-emerald-600">Opened remotely</p>
+                  </div>
                 </div>
               </motion.div>
 
-              {/* Secondary Phones */}
-              <motion.div 
-                className="absolute left-0 top-16 z-20"
-                initial={{ opacity: 0, x: -100 }}
+              <motion.div
+                className="absolute -right-2 bottom-24 z-30 hidden rounded-2xl border border-ink-100 bg-white/90 px-4 py-3 shadow-card backdrop-blur sm:block"
+                initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
+                transition={{ delay: 0.85, duration: 0.6 }}
               >
-                <img 
-                  src="/screenshot_1.png" 
-                  alt="EstateIoT Features" 
-                  width={200}
-                  height={400}
-                  className="shadow-xl rounded-2xl transform rotate-[-8deg]"
-                />
-              </motion.div>
-
-              <motion.div 
-                className="absolute right-0 top-24 z-10"
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7, duration: 0.8 }}
-              >
-                <img 
-                  src="/screenshot_2.png" 
-                  alt="EstateIoT Dashboard" 
-                  width={200}
-                  height={400}
-                  className="shadow-xl rounded-2xl transform rotate-[8deg]"
-                />
-              </motion.div>
-
-              {/* Background Tablet */}
-              <motion.div 
-                className="absolute top-32 left-1/2 transform -translate-x-1/2 z-0"
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 0.3, scale: 1 }}
-                transition={{ delay: 1, duration: 1 }}
-              >
-                <img 
-                  src="/screenshot_3.png" 
-                  alt="EstateIoT Admin Panel" 
-                  width={320}
-                  height={240}
-                  className="shadow-lg rounded-2xl"
-                />
+                <div className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+                    <Bell className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-ink-900">New announcement</p>
+                    <p className="text-xs font-medium text-ink-400">Delivered to 248 units</p>
+                  </div>
+                </div>
               </motion.div>
             </div>
-
-            {/* Floating Elements */}
-            <div className="absolute top-10 right-10 w-6 h-6 bg-[#3498db] rounded-full animate-pulse"></div>
-            <div className="absolute bottom-20 left-10 w-4 h-4 border-2 border-[#3498db] rounded-full animate-bounce"></div>
-            <div className="absolute top-1/2 right-0 w-8 h-8 border-2 border-[#3498db] rounded-lg transform rotate-45 animate-pulse"></div>
           </motion.div>
         </div>
+
+        {/* Trust / capability strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ink-100 bg-ink-100 shadow-soft md:grid-cols-4"
+        >
+          {[
+            { icon: DoorOpen, label: 'Remote gate control', value: 'Open from anywhere' },
+            { icon: ShieldCheck, label: 'Visitor access', value: 'Codes & approvals' },
+            { icon: Activity, label: 'System status', value: 'Live monitoring' },
+            { icon: Bell, label: 'Announcements', value: 'Targeted delivery' },
+          ].map((s) => (
+            <div key={s.label} className="bg-white px-6 py-6">
+              <s.icon className="h-5 w-5 text-brand-600" />
+              <p className="mt-3 font-display text-base font-semibold text-ink-900">{s.value}</p>
+              <p className="text-sm text-ink-400">{s.label}</p>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )

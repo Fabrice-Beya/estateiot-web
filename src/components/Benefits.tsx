@@ -1,198 +1,122 @@
-
 import { motion } from 'framer-motion'
-import { CheckCircle, TrendingUp, Shield, Clock, Users, DollarSign } from 'lucide-react'
+import {
+  Clock,
+  ShieldCheck,
+  Smartphone,
+  Zap,
+  Sparkles,
+  Building2,
+  UserCog,
+  Users,
+} from 'lucide-react'
+
+const pillars = [
+  {
+    icon: Zap,
+    title: 'Faster day-to-day operations',
+    description:
+      'Automate gate access, visitor approvals, and announcements so staff spend less time on manual coordination.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Stronger security & accountability',
+    description:
+      'Every gate event, access code, and approval is logged, giving administrators a clear, auditable record.',
+  },
+  {
+    icon: Sparkles,
+    title: 'A better resident experience',
+    description:
+      'Residents get a single, modern app for access, news, and estate status — no more group chats or paper notices.',
+  },
+]
+
+const audiences = [
+  { icon: Building2, label: 'Estate & facility managers' },
+  { icon: Users, label: 'Security teams & guards' },
+  { icon: UserCog, label: 'HOAs & body corporates' },
+]
+
+const highlights = [
+  { icon: Clock, value: '24/7', label: 'Access from anywhere' },
+  { icon: ShieldCheck, value: 'Secure', label: 'Encrypted in transit' },
+  { icon: Smartphone, value: 'iOS + Android', label: 'Native apps, live now' },
+  { icon: Building2, value: 'Multi-estate', label: 'Manage a full portfolio' },
+]
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as const } },
+}
 
 export default function Benefits() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  }
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
-
-  const benefits = [
-    "Reduce operational costs by up to 40%",
-    "Increase security effectiveness by 85%", 
-    "Improve resident satisfaction scores by 90%",
-    "Automate 70% of routine management tasks",
-    "Reduce emergency response time by 60%",
-    "Scale seamlessly from 10 to 10,000+ units"
-  ]
-
-  const stats = [
-    {
-      number: "500+",
-      label: "Estates Managed",
-      icon: Users,
-      color: "#3498db"
-    },
-    {
-      number: "99.9%",
-      label: "System Uptime",
-      icon: Shield,
-      color: "#27ae60"
-    },
-    {
-      number: "50K+",
-      label: "Active Residents",
-      icon: TrendingUp,
-      color: "#8e44ad"
-    },
-    {
-      number: "24/7",
-      label: "Support Available",
-      icon: Clock,
-      color: "#e67e22"
-    }
-  ]
-
   return (
-    <section id="benefits" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-          >
-            <motion.div
-              className="inline-flex items-center px-4 py-2 bg-[#3498db]/10 rounded-full text-[#3498db] font-medium text-sm mb-6"
-              variants={fadeInUp}
-            >
-              <TrendingUp className="w-4 h-4 mr-2" />
-              Proven Results
-            </motion.div>
-
-            <motion.h2 
-              className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8"
-              variants={fadeInUp}
-            >
-              Why Leading Estates Choose
-              <span className="block text-[#3498db]">EstateIoT</span>
-            </motion.h2>
-            
-            <motion.p 
-              className="text-lg text-gray-600 mb-8"
-              variants={fadeInUp}
-            >
-              Transform your estate operations with measurable improvements in efficiency, 
-              security, and resident satisfaction through our proven IoT platform.
-            </motion.p>
-
-            <motion.div className="space-y-4" variants={staggerContainer}>
-              {benefits.map((benefit, index) => (
-                <motion.div 
-                  key={index}
-                  className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100"
-                  variants={fadeInUp}
-                  whileHover={{ scale: 1.02, x: 10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <div className="flex-shrink-0">
-                    <CheckCircle className="w-6 h-6 text-[#27ae60]" />
-                  </div>
-                  <span className="text-lg text-gray-700 font-medium">{benefit}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <motion.div 
-              className="mt-8 p-6 bg-[#3498db]/5 rounded-xl border border-[#3498db]/20"
-              variants={fadeInUp}
-            >
-              <div className="flex items-center mb-3">
-                <DollarSign className="w-5 h-5 text-[#3498db] mr-2" />
-                <span className="font-semibold text-gray-900">ROI Guarantee</span>
-              </div>
-              <p className="text-gray-700">
-                See measurable returns within 6 months or we&apos;ll work with you until you do. 
-                Our platform typically pays for itself through operational savings alone.
-              </p>
-            </motion.div>
-          </motion.div>
-
-          <motion.div 
-            className="relative"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center group"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                >
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl flex items-center justify-center group-hover:from-[#3498db]/10 group-hover:to-[#3498db]/20 transition-all duration-300">
-                    <stat.icon className="w-8 h-8" style={{ color: stat.color }} />
-                  </div>
-                  <div className="text-4xl font-bold mb-2" style={{ color: stat.color }}>
-                    {stat.number}
-                  </div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Background decoration */}
-            <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-[#3498db]/10 to-transparent rounded-full -z-10"></div>
-            <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-gradient-to-tr from-[#3498db]/10 to-transparent rounded-full -z-10"></div>
-          </motion.div>
+    <section id="why" className="bg-ink-50/60 py-24 lg:py-32">
+      <div className="container-px">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow">
+            <Sparkles className="h-3.5 w-3.5" />
+            Why EstateIoT
+          </span>
+          <h2 className="heading mt-5 text-3xl sm:text-4xl lg:text-[2.7rem]">
+            Built for the people who run estates
+          </h2>
+          <p className="mt-5 text-lg text-ink-500">
+            EstateIoT brings access control, communication, and monitoring together — measurable
+            time saved for staff and a smoother experience for residents.
+          </p>
         </div>
 
-        {/* Vision Section */}
-        <motion.div 
-          className="mt-20 text-center"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={staggerContainer}
+        <motion.div
+          className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ staggerChildren: 0.1 }}
         >
-          <motion.div 
-            className="max-w-4xl mx-auto bg-gradient-to-br from-[#3498db]/5 to-[#3498db]/10 rounded-2xl p-8 border border-[#3498db]/20"
-            variants={fadeInUp}
-          >
-            <motion.h3 
-              className="text-2xl font-bold text-gray-900 mb-4"
-              variants={fadeInUp}
+          {pillars.map((p) => (
+            <motion.div
+              key={p.title}
+              variants={fadeUp}
+              className="rounded-2xl border border-ink-100 bg-white p-8 shadow-soft"
             >
-              The Future of Estate Management is Here
-            </motion.h3>
-            <motion.p 
-              className="text-lg text-gray-700 mb-6"
-              variants={fadeInUp}
-            >
-              We&apos;re building the next generation of smart community management. Join us in revolutionizing 
-              how residential estates operate with cutting-edge IoT technology, intelligent automation, 
-              and user-centric design.
-            </motion.p>
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              variants={fadeInUp}
-            >
-              <button className="bg-[#3498db] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#2980b9] transition-all">
-                Join the Beta Program
-              </button>
-              <button className="border-2 border-[#3498db] text-[#3498db] px-8 py-3 rounded-lg font-semibold hover:bg-[#3498db] hover:text-white transition-all">
-                Request Early Access
-              </button>
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 ring-1 ring-brand-100">
+                <p.icon className="h-6 w-6" />
+              </span>
+              <h3 className="mt-5 font-display text-xl font-semibold text-ink-900">{p.title}</h3>
+              <p className="mt-3 leading-relaxed text-ink-500">{p.description}</p>
             </motion.div>
-          </motion.div>
+          ))}
         </motion.div>
+
+        {/* Highlights strip */}
+        <div className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ink-100 bg-ink-100 shadow-soft lg:grid-cols-4">
+          {highlights.map((h) => (
+            <div key={h.label} className="bg-white px-6 py-7 text-center">
+              <h.icon className="mx-auto h-6 w-6 text-brand-600" />
+              <p className="mt-3 font-display text-xl font-bold text-ink-900">{h.value}</p>
+              <p className="text-sm text-ink-400">{h.label}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Audiences */}
+        <div className="mt-16 flex flex-col items-center gap-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-ink-400">
+            Made for
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {audiences.map((a) => (
+              <span
+                key={a.label}
+                className="inline-flex items-center gap-2.5 rounded-full border border-ink-200 bg-white px-5 py-2.5 text-sm font-semibold text-ink-700 shadow-soft"
+              >
+                <a.icon className="h-4 w-4 text-brand-600" />
+                {a.label}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

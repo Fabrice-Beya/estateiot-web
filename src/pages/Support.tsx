@@ -1,201 +1,159 @@
 import React from 'react';
-import { Mail, MessageCircle, Phone, Clock, Globe, Shield, Zap, ArrowLeft } from 'lucide-react';
+import { Mail, Globe, Shield, Zap, ArrowLeft, Apple, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { site, year } from '../lib/site';
 
 const Support: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-ink-50/60">
       {/* Header with Navigation */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <header className="sticky top-0 z-40 border-b border-ink-100 bg-white/85 backdrop-blur-xl">
+        <div className="container-px py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center space-x-2">
-              <ArrowLeft className="w-5 h-5 text-[#3498db]" />
-              <span className="text-gray-700 hover:text-[#3498db]">Back to EstateIoT</span>
+            <Link to="/" className="inline-flex items-center gap-2 text-sm font-medium text-ink-600 transition-colors hover:text-brand-600">
+              <ArrowLeft className="h-4 w-4" />
+              Back to EstateIoT
             </Link>
-            <div className="flex items-center space-x-2">
-              <img src="/icon.png" alt="EstateIoT" className="w-8 h-8 rounded-lg" />
-              <span className="text-xl font-bold text-[#3498db]">EstateIoT</span>
+            <div className="flex items-center gap-2.5">
+              <img src="/icon.png" alt="EstateIoT" className="h-8 w-8 rounded-[9px] ring-1 ring-ink-100" />
+              <span className="font-display text-lg font-bold text-ink-900">
+                Estate<span className="text-brand-600">IoT</span>
+              </span>
             </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="container-px max-w-4xl py-14">
         {/* Hero Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Support Center</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Get help with EstateIoT - your smart estate management platform. We're here to support you 24/7.
+        <div className="mb-12 text-center">
+          <span className="eyebrow"><Shield className="h-3.5 w-3.5" /> Support Center</span>
+          <h1 className="heading mt-5 text-4xl">How can we help?</h1>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-ink-500">
+            Questions about the EstateIoT app or admin portal? Our team is here to help — reach
+            out and we'll get back to you within one business day.
           </p>
         </div>
 
         {/* Quick Help Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
-            <div className="w-12 h-12 bg-[#3498db]/10 rounded-lg flex items-center justify-center mb-4">
-              <MessageCircle className="w-6 h-6 text-[#3498db]" />
+        <div className="mb-12 grid gap-5 md:grid-cols-2">
+          <div className="card p-7">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 ring-1 ring-brand-100">
+              <Mail className="h-6 w-6" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Live Chat</h3>
-            <p className="text-gray-600 mb-4">Get instant help from our support team</p>
-            <button className="text-[#3498db] font-semibold hover:underline">Start Chat →</button>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
-            <div className="w-12 h-12 bg-[#3498db]/10 rounded-lg flex items-center justify-center mb-4">
-              <Mail className="w-6 h-6 text-[#3498db]" />
-            </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Support</h3>
-            <p className="text-gray-600 mb-4">Send us your questions and we'll respond within 24 hours</p>
-            <a href="mailto:support@estateiot.com" className="text-[#3498db] font-semibold hover:underline">
-              support@estateiot.com →
+            <h3 className="mt-5 font-display text-lg font-semibold text-ink-900">Email support</h3>
+            <p className="mt-2 text-ink-500">For help with your account, the app, or a device issue.</p>
+            <a href={`mailto:${site.supportEmail}`} className="mt-4 inline-block font-semibold text-brand-600 hover:underline">
+              {site.supportEmail} →
             </a>
           </div>
 
-          <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
-            <div className="w-12 h-12 bg-[#3498db]/10 rounded-lg flex items-center justify-center mb-4">
-              <Phone className="w-6 h-6 text-[#3498db]" />
+          <div className="card p-7">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 ring-1 ring-brand-100">
+              <Globe className="h-6 w-6" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone Support</h3>
-            <p className="text-gray-600 mb-4">Call our technical support team</p>
-            <a href="tel:+27123456789" className="text-[#3498db] font-semibold hover:underline">
-              +27 12 345 6789 →
+            <h3 className="mt-5 font-display text-lg font-semibold text-ink-900">Business & sales</h3>
+            <p className="mt-2 text-ink-500">To roll out EstateIoT across your estate or portfolio.</p>
+            <a href={`mailto:${site.salesEmail}`} className="mt-4 inline-block font-semibold text-brand-600 hover:underline">
+              {site.salesEmail} →
             </a>
           </div>
         </div>
 
-        {/* Contact Information */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Technical Support</h3>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-[#3498db]" />
-                  <span className="text-gray-700">support@estateiot.com</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-[#3498db]" />
-                  <span className="text-gray-700">+27 12 345 6789</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-[#3498db]" />
-                  <span className="text-gray-700">24/7 Support Available</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Business Inquiries</h3>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-[#3498db]" />
-                  <span className="text-gray-700">sales@estateiot.com</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-[#3498db]" />
-                  <span className="text-gray-700">+27 12 345 6790</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Globe className="w-5 h-5 text-[#3498db]" />
-                  <span className="text-gray-700">estateiot.com</span>
-                </div>
-              </div>
-            </div>
+        {/* Get the app */}
+        <div className="mb-12 flex flex-col items-center justify-between gap-4 rounded-2xl border border-ink-100 bg-white p-7 shadow-soft sm:flex-row">
+          <div>
+            <h3 className="font-display text-lg font-semibold text-ink-900">Get the resident app</h3>
+            <p className="mt-1 text-ink-500">Available now on iOS and Android.</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a href={site.appStoreUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-ink-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink-950">
+              <Apple className="h-4 w-4" /> App Store
+            </a>
+            <a href={site.playStoreUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-ink-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink-950">
+              <Play className="h-4 w-4" /> Google Play
+            </a>
           </div>
         </div>
 
         {/* FAQ Section */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-          
+        <div className="card mb-12 p-8">
+          <h2 className="heading mb-6 text-2xl">Frequently asked questions</h2>
+
           <div className="space-y-6">
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">How do I set up EstateIoT for my property?</h3>
-              <p className="text-gray-600">
-                Our setup process is straightforward. Contact our sales team at sales@estateiot.com and we'll guide you through the installation and configuration process. Most setups are completed within 48 hours.
+            <div className="border-b border-ink-100 pb-6">
+              <h3 className="font-display text-lg font-semibold text-ink-900">How do I get EstateIoT for my estate?</h3>
+              <p className="mt-2 text-ink-500">
+                Email our team at {site.salesEmail} and we'll walk you through onboarding your estate,
+                configuring gates and devices, and inviting residents to the app.
               </p>
             </div>
 
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Is my data secure with EstateIoT?</h3>
-              <p className="text-gray-600">
-                Yes, security is our top priority. We use enterprise-grade encryption, secure cloud infrastructure, and comply with international data protection standards. Your data is stored securely and never shared with third parties.
+            <div className="border-b border-ink-100 pb-6">
+              <h3 className="font-display text-lg font-semibold text-ink-900">Is my data secure with EstateIoT?</h3>
+              <p className="mt-2 text-ink-500">
+                Data is encrypted in transit and you can request that your data be deleted. We only collect
+                what's needed to run the service — see our Privacy Policy for full details.
               </p>
             </div>
 
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Can I integrate EstateIoT with existing systems?</h3>
-              <p className="text-gray-600">
-                EstateIoT is designed to integrate seamlessly with most existing access control, security, and management systems. Our technical team will assess your current setup and provide integration guidance.
-              </p>
-            </div>
-
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">What support is included with my subscription?</h3>
-              <p className="text-gray-600">
-                All subscriptions include 24/7 technical support, regular software updates, cloud hosting, and access to our customer success team. Premium plans also include on-site support and priority response times.
+            <div className="border-b border-ink-100 pb-6">
+              <h3 className="font-display text-lg font-semibold text-ink-900">Which devices are supported?</h3>
+              <p className="mt-2 text-ink-500">
+                The resident app is available on iOS (15.1+) and Android. Administrators manage their
+                estates from the web-based admin portal in any modern browser.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">How do I report a bug or request a feature?</h3>
-              <p className="text-gray-600">
-                You can report bugs or request features by emailing support@estateiot.com or using the in-app feedback system. We review all requests and prioritize based on user needs and system impact.
+              <h3 className="font-display text-lg font-semibold text-ink-900">How do I report a bug or request a feature?</h3>
+              <p className="mt-2 text-ink-500">
+                Email {site.supportEmail} with a description and, if possible, a screenshot. We review every
+                request and prioritise based on impact.
               </p>
             </div>
           </div>
         </div>
 
         {/* Features Overview */}
-        <div className="bg-gradient-to-br from-[#3498db] to-[#2980b9] rounded-2xl text-white p-8">
-          <h2 className="text-2xl font-bold mb-6">What EstateIoT Offers</h2>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="flex items-start space-x-3">
-              <Shield className="w-6 h-6 mt-1 flex-shrink-0" />
+        <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 p-8 text-white shadow-lift">
+          <h2 className="heading text-2xl text-white">What EstateIoT offers</h2>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
+            <div className="flex items-start gap-3">
+              <Shield className="mt-0.5 h-6 w-6 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold mb-1">Smart Access Control</h3>
-                <p className="text-blue-100 text-sm">Advanced gate management with RFID, mobile control, and visitor management</p>
+                <h3 className="font-semibold">Smart access control</h3>
+                <p className="mt-1 text-sm text-brand-50">Remote gate control, visitor approvals, and single-use access codes.</p>
               </div>
             </div>
-
-            <div className="flex items-start space-x-3">
-              <Zap className="w-6 h-6 mt-1 flex-shrink-0" />
+            <div className="flex items-start gap-3">
+              <Zap className="mt-0.5 h-6 w-6 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold mb-1">Real-time Monitoring</h3>
-                <p className="text-blue-100 text-sm">24/7 surveillance with AI-powered analytics and instant alerts</p>
+                <h3 className="font-semibold">Live monitoring</h3>
+                <p className="mt-1 text-sm text-brand-50">Real-time status of gates, cameras, and utilities across the estate.</p>
               </div>
             </div>
-
-            <div className="flex items-start space-x-3">
-              <Globe className="w-6 h-6 mt-1 flex-shrink-0" />
+            <div className="flex items-start gap-3">
+              <Globe className="mt-0.5 h-6 w-6 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold mb-1">Cloud Platform</h3>
-                <p className="text-blue-100 text-sm">Secure, scalable infrastructure with 99.9% uptime guarantee</p>
+                <h3 className="font-semibold">Admin portal</h3>
+                <p className="mt-1 text-sm text-brand-50">One console to manage residents, devices, and announcements per estate.</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-12 pt-8 border-t border-gray-200">
-          <p className="text-gray-600">
-            Need immediate assistance? Contact us at{' '}
-            <a href="mailto:support@estateiot.com" className="text-[#3498db] font-semibold hover:underline">
-              support@estateiot.com
-            </a>{' '}
-            or call{' '}
-            <a href="tel:+27123456789" className="text-[#3498db] font-semibold hover:underline">
-              +27 12 345 6789
+        <div className="mt-12 border-t border-ink-100 pt-8 text-center">
+          <p className="text-ink-500">
+            Need a hand? Email us at{' '}
+            <a href={`mailto:${site.supportEmail}`} className="font-semibold text-brand-600 hover:underline">
+              {site.supportEmail}
             </a>
           </p>
-          <p className="text-sm text-gray-500 mt-2">
-            © 2024 EstateIoT. All rights reserved.
-          </p>
+          <p className="mt-2 text-sm text-ink-400">© {year} {site.name}. All rights reserved.</p>
         </div>
       </main>
     </div>
